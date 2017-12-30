@@ -1,0 +1,77 @@
+This code demonstrates the design of a simple rolling average for a robot 
+sensor, as well as a (slightl) "smarter" design that drops the highest and lowest
+values to reduce the impact of extreme outlier values coming from elecical noise.
+
+
+
+Assume this is the output of a distance ultrasonic sensor that is 10 inches from the target.
+
+The values reported by the (simulated) sensor generally range from 9.0 to 11.0
+The actual average is 10.0, with outliers of 0 and 20.
+So we expect to see averages around 10,
+and a rolling average reading of less than 9 or greater than 11
+indicates our average is being heavily skewed by an outlier.
+
+
+Simple average filter:
+-1.0
+-1.0
+-1.0
+-1.0
+-1.0
+-1.0
+-1.0
+-1.0
+-1.0
+8.759999999999998
+9.84
+9.889999999999999
+8.979999999999999
+8.95
+8.959999999999999
+9.01
+8.959999999999999
+9.0
+9.129999999999999
+9.260000000000002
+9.1
+8.07
+9.03
+9.129999999999999
+9.05
+8.98
+9.1
+9.07
+8.010000000000002
+7.87
+ 
+Smarter filter:
+-1.0
+-1.0
+-1.0
+-1.0
+-1.0
+-1.0
+-1.0
+-1.0
+-1.0
+9.933333333333334
+9.933333333333334
+10.083333333333334
+10.083333333333334
+10.033333333333333
+10.166666666666666
+10.083333333333334
+9.966666666666667
+9.866666666666667
+9.866666666666667
+9.75
+9.85
+9.966666666666667
+9.983333333333334
+10.066666666666666
+9.983333333333333
+9.9
+9.85
+9.633333333333333
+9.633333333333333
