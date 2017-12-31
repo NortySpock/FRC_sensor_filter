@@ -1,10 +1,8 @@
 This code demonstrates the design of a simple rolling average for a robot 
-sensor, as well as a (slightl) "smarter" design that drops the highest and lowest
+sensor, as well as a (slightly) "smarter" design that drops the highest and lowest
 values to reduce the impact of extreme outlier values coming from elecical noise.
 
-
-
-Assume this is the output of a distance ultrasonic sensor that is 10 inches from the target.
+Assume this is the output of a slightly faulty (noisy) distance ultrasonic sensor that is 10 inches from the target.
 
 The values reported by the (simulated) sensor generally range from 9.0 to 11.0
 The actual average is 10.0, with outliers of 0 and 20.
